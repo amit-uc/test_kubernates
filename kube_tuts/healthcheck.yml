@@ -1,0 +1,31 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: test-app2
+spec:
+  selector:
+    matchLabels:
+      app: sampleapp
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: sampleapp
+    spec:
+      containers:
+        - name: sampleapp
+          image: amithapa/sampleapp
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 3

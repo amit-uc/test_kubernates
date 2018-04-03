@@ -1,0 +1,21 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: test-app2
+spec:
+  selector:
+    matchLabels:
+      app: sampleapp
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: sampleapp
+    spec:
+      containers:
+        - name: sampleapp
+          image: amithapa/sampleapp
+          ports:
+            - containerPort: 80
+      nodeSelector:
+        storageType: ssd
