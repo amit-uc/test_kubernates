@@ -1,0 +1,2 @@
+- kubectl create secrete generic db-user-pass --from-file=./username.txt --from-file=./password
+- kubectl create secret generic mysql-pass --from-literal=password=PASSWORDS_IN_PLAIN_TEXT_ARE_BAD_WE_WILL_SHOW_SOMETHING_MORE_SECURE_LATER
