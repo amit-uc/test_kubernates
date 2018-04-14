@@ -56,10 +56,13 @@ Once successfully creation of the s3 bucket
 * We will set an Environment varaible where our Kops tool will expect it to be there
     ```bash
     export KOPS_STATE_STORE=s3://docxtract-k8s-test
+    export NODE_SIZE=${NODE_SIZE:-t2.nano}
+    export MASTER_SIZE=${MASTER_SIZE:-t2.nano}
+    export ZONES=${ZONES:-"us-east-1d,us-east-1b,us-east-1c"}
     ```
 * Create a cluster using cops
     ```bash
-    kops create cluster docxtract-k8s-demo.k8s.local --zones us-east-1a --yes
+    kops create cluster docxtract-k8s-demo.k8s.local --zones $ZONES --node-size $NODE_SIZE --master-size $MASTER_SIZE --yes
     ```
  * If any error occurrs while creating the cluster for SSH we neeed to set up the ssh
     ```bash
