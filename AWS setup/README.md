@@ -76,3 +76,15 @@ Once successfully creation of the s3 bucket
  ```
     
  
+ kops delete cluster --name docxtract-k8s-demo.k8s.local --yes
+ 
+ kops create cluster --name=docxtract-k8s-demo.k8s.local \
+  --zones=us-east-1a \
+  --node-size=t2.micro --master-size=t2.micro --yes
+
+Suggestions:
+ * validate cluster: kops validate cluster
+ * list nodes: kubectl get nodes --show-labels
+ * ssh to the master: ssh -i ~/.ssh/id_rsa admin@api.docxtract-k8s-demo.k8s.local
+ * the admin user is specific to Debian. If not using Debian please use the appropriate user based on your OS.
+ * read about installing addons at: https://github.com/kubernetes/kops/blob/master/docs/addons.md.
