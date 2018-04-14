@@ -39,10 +39,10 @@ Configure the IAM role from the instance where you are going to setup the KOPS.
 Region is very important to specify while setting up the configuration
 ```
 aws configure
-AWS Access Key ID [None]: 
-AWS Secret Access Key [None]: 
+AWS Access Key ID [None]:
+AWS Secret Access Key [None]:
 Default region name [None]: us-east-1
-Default output format [None]: 
+Default output format [None]:
 ```
 
 Create an AWS S3 bucket as a "state store"  
@@ -62,25 +62,34 @@ Once successfully creation of the s3 bucket
     ```
 * Create a cluster using cops
     ```bash
-    kops create cluster docxtract-k8s-demo.k8s.local --zones $ZONES --node-size $NODE_SIZE --master-size $MASTER_SIZE --yes
+    kops create cluster docxtract-k8s-demo.k8s.local \
+    --zones $ZONES \
+    --node-size $NODE_SIZE \
+    --master-size $MASTER_SIZE --yes
     ```
  * If any error occurrs while creating the cluster for SSH we neeed to set up the ssh
     ```bash
     	ssh-keygen
     ```
  * After that create a cluster (You wont have that proble if you have already have a public Key
- 
+
  To validate the successful setup of the cops
  ```
  kops validate cluster
  ```
-    
- 
+
+To Delete the cluster
+```bash
  kops delete cluster --name docxtract-k8s-demo.k8s.local --yes
- 
+```
+
+Create the Kobs Cluster with t2.micro nodes only.
+```bash
  kops create cluster --name=docxtract-k8s-demo.k8s.local \
   --zones=us-east-1a \
   --node-size=t2.micro --master-size=t2.micro --yes
+```
+
 
 Suggestions:
  * validate cluster: kops validate cluster
@@ -88,3 +97,17 @@ Suggestions:
  * ssh to the master: ssh -i ~/.ssh/id_rsa admin@api.docxtract-k8s-demo.k8s.local
  * the admin user is specific to Debian. If not using Debian please use the appropriate user based on your OS.
  * read about installing addons at: https://github.com/kubernetes/kops/blob/master/docs/addons.md.
+
+
+## High Availabilty
+
+Where we have 3 master nodes.  
+It is always recommended to have an odd number of master nodes.
+```bash
+kops create cluster docxtract-k8s-demo.k8s.local \
+--zones us-east-1a,us-east-1a,us-east-1b,us-east-1c \
+--node-count 3 \
+--master-zones us-east-1a,us-east-1b,us-east-1c --yes
+```
+
+
