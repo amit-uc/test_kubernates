@@ -111,3 +111,8 @@ kops create cluster docxtract-k8s-demo.k8s.local \
 ```
 
 
+## Kubernetes Dashboard
+
+[Kubernetes Dashboard](https://github.com/kubernetes/kops/blob/master/docs/addons.md) Reference
+
+## Creating a persistent volumes.
