@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: red
+  labels:
+    color: red
+spec:
+  containers:
+    - name: red
+      image: color_app
+      imagePullPolicy: IfNotPresent
+      env:
+        - name: "COLOR"
+          value: "red"
+      ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: green
+  labels:
+    color: green
+spec:
+  containers:
+    - name: green
+      image: color_app
+      imagePullPolicy: IfNotPresent
+      env:
+        - name: "COLOR"
+          value: "green"
+      ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: blue
+  labels:
+    color: blue
+spec:
+  containers:
+    - name: blue
+      image: color_app
+      imagePullPolicy: IfNotPresent
+      env:
+        - name: "COLOR"
+          value: "blue"
+      ports:
+        - containerPort: 8080
