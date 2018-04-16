@@ -87,7 +87,10 @@ Create the Kobs Cluster with t2.micro nodes only.
 ```bash
  kops create cluster --name=docxtract-k8s-demo.k8s.local \
   --zones=us-east-1a \
-  --node-size=t2.micro --master-size=t2.micro --yes
+  --node-size=t2.micro --master-size=t2.micro \
+  --master-volume-size=1 \ 
+  --node-volume-size=1 \ 
+  --yes
 ```
 
 
