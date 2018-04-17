@@ -88,8 +88,8 @@ Create the Kobs Cluster with t2.micro nodes only.
  kops create cluster --name=docxtract-k8s-demo.k8s.local \
   --zones=us-east-1a \
   --node-size=t2.micro --master-size=t2.micro \
-  --master-volume-size=1 \ 
-  --node-volume-size=1 \ 
+  --master-volume-size=10 \ 
+  --node-volume-size=10 \ 
   --yes
 ```
 
@@ -122,3 +122,23 @@ kops create cluster docxtract-k8s-demo.k8s.local \
 
 ## Kops Cluster parameters 
 [Kops Cluster Parameters](https://github.com/kubernetes/kops/blob/master/docs/cli/kops_create_cluster.md)
+Create the Kobs Cluster with t2.micro nodes only.
+```bash
+ kops create cluster --name=docxtract-k8s-demo.k8s.local \
+--zones=us-east-1a \
+--cloud=aws \
+--cloud-labels=`Env=Test,Module=Docxtract` \
+--kubernetes-version=1.10 \
+--master-size=t2.micro \ 
+--master-public-name=master-docxtract-k8s \
+--master-security-groups=sg-06ee42831f0508621 \
+--master-volume-size=10 \ 
+--master-zones=us-east-1a \
+--node-count=2 \
+--node-security-groups=sg-06ee42831f0508621 \
+--node-size=t2.micro \
+--node-volume-size=10 \
+--subnets=subnet-01c414e3436c0592c \
+--vpc=vpc-0d0501912a58f5fcf \
+--yes
+```
