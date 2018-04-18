@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: red
-          image: color_app
+          image: amithapa/color_app
           imagePullPolicy: IfNotPresent
           env:
             - name: "COLOR"
@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
         - name: green
-          image: color_app
+          image: amithapa/color_app
           imagePullPolicy: IfNotPresent
           env:
             - name: "COLOR"
@@ -53,7 +53,7 @@ spec:
     spec:
       containers:
         - name: blue
-          image: color_app
+          image: amithapa/color_app
           imagePullPolicy: IfNotPresent
           env:
             - name: "COLOR"

@@ -127,18 +127,19 @@ Create the Kobs Cluster with t2.micro nodes only.
  kops create cluster --name=docxtract-k8s-demo.k8s.local \
 --zones=us-east-1a \
 --cloud=aws \
---cloud-labels=`Env=Test,Module=Docxtract` \
---kubernetes-version=1.10 \
---master-size=t2.micro \ 
+--cloud-labels=Env=Test,Module=Docxtract \
+--master-size=t2.micro \
 --master-public-name=master-docxtract-k8s \
---master-security-groups=sg-06ee42831f0508621 \
---master-volume-size=10 \ 
+--master-security-groups=sg-xxxxxxxxxxxxxx \
+--master-volume-size=10 \
 --master-zones=us-east-1a \
 --node-count=2 \
---node-security-groups=sg-06ee42831f0508621 \
+--node-security-groups=sg-xxxxxxxxxxxxxx \
 --node-size=t2.micro \
 --node-volume-size=10 \
---subnets=subnet-01c414e3436c0592c \
---vpc=vpc-0d0501912a58f5fcf \
+--subnets=subnet-xxxxxxxxxxxxxx \
+--vpc=vpc-xxxxxxxxxxxxxx \
 --yes
 ```
+ 
+ [Custom VPC](https://github.com/kubernetes/kops/blob/master/docs/run_in_existing_vpc.md)
