@@ -139,7 +139,12 @@ Create the Kobs Cluster with t2.micro nodes only.
 --node-volume-size=10 \
 --subnets=subnet-xxxxxxxxxxxxxx \
 --vpc=vpc-xxxxxxxxxxxxxx \
+--networking=weave \
 --yes
 ```
  
  [Custom VPC](https://github.com/kubernetes/kops/blob/master/docs/run_in_existing_vpc.md)
+ 
+ 
+ ## Networking required for the kuberentes to create a private ip
+ [Reference](https://www.weave.works/docs/net/latest/overview/)
