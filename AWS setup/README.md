@@ -148,3 +148,35 @@ Create the Kobs Cluster with t2.micro nodes only.
  
  ## Networking required for the kuberentes to create a private ip
  [Reference](https://www.weave.works/docs/net/latest/overview/)
+ 
+ ## Working with existing VPC and SUBNET.
+ ```bash
+export CLUSTER_NAME=docxtract-k8s-demo.k8s.local
+export KOPS_STATE_STORE=s3://docxtract-k8s-test
+export NODE_SIZE=t2.micro
+export NODE_VOLUME_SIZE=10
+export MASTER_SIZE=t2.micro
+export MASTER_VOLUME_SIZE=10
+export ZONES=us-east-1a
+export VPC_ID=vpc-xxxxxx # replace with your VPC id
+export NETWORK_CIDR=100.21.0.0/16 # replace with the cidr for the VPC ${VPC_ID}
+export SUBNET_ID=subnet-xxxxxx # replace with your subnet id
+export SUBNET_CIDR=100.21.16.0/20 # replace with your subnet CIDR
+export SUBNET_IDS=$SUBNET_ID # replace with your comma separated subnet ids
+
+kops create cluster --name=${CLUSTER_NAME} \
+--zones=${ZONES} \
+--cloud=aws \
+--master-size=t2.micro \
+--master-volume-size=${MASTER_VOLUME_SIZE} \
+--network-cidr=${NETWORK_CIDR} \
+--node-count=1 \
+--vpc=${VPC_ID} \
+--subnets=${SUBNET_IDS} \
+--node-size=t2.micro \
+--node-volume-size=10 \
+--networking weave \
+--yes
+
+
+```
