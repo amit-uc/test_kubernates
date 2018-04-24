@@ -50,10 +50,8 @@ ip-192-168-30-52   NotReady   master    40s       v1.10.1
 The status of the node is NotReady. The reason for this is because kube-dns is pending. The NotReady will disapear after a CNI network is intalled.
 
 ```bash
-root@ip-172-31-49-128:~# sysctl net.bridge.bridge-nf-call-iptables=1 net.bridge.bridge-nf-call-iptables = 1
 
-ubuntu@ip-172-31-49-128:~$ export kubever=$(kubectl version | base64 | tr -d '\n')
-ubuntu@ip-172-31-49-128:~$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
+ubuntu@ip-192-168-30-52:~$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 ```
 
 [Reference To setup](https://www.cloudtechnologyexperts.com/kubeadm-on-aws/)
