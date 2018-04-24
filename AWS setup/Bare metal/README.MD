@@ -1,4 +1,7 @@
 
+  
+[Install Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1)
+
 ``` bash
 add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -11,9 +14,10 @@ apt-get update
 
 apt-get install docker-ce
 ```
-  
-[Install Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1)
 
+
+  
+**Setup Kubeadm, kubelet and kubernetes-cni**
 ```bash
 sudo apt-get update \
   && sudo apt-get install -y apt-transport-https \
@@ -33,6 +37,7 @@ sudo apt-get update \
   kubernetes-cni
 ```
 
+**Initialize the master node**
 ```bash
 kubeadm init
 ```
