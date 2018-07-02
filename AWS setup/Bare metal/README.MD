@@ -60,3 +60,5 @@ ubuntu@ip-192-168-30-52:~$ kubectl apply -f "https://cloud.weave.works/k8s/net?k
 ```
 
 [Reference To setup](https://www.cloudtechnologyexperts.com/kubeadm-on-aws/)
+
+[Kuberenetes During reset](https://blog.heptio.com/properly-resetting-your-kubeadm-bootstrapped-cluster-nodes-heptioprotip-473bd0b824aa)
